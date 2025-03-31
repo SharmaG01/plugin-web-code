@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Court Customizer</title>
+    <style>
+        #court {
+            background:url(images/stadium.png) rgb(59,127,67) no-repeat top left;
+            background-size: 100% auto;
+            margin: 0 0 20px;
+        }
+        .chooser {
+            display: inline-block;
+            margin-right: 5%;
+        }
+        .chooser h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            letter-spacing: .1em;
+            width: 100%;
+            vertical-align: middle;
+            margin: 20px 0px;
+        }
+        .chooser ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .chooser li {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            padding: 1px;
+            border-style: solid;
+            border-width: 1px;
+            position: relative;
+            margin-right: 6px;
+        }
+        .chooser li span {
+            display: none;
+            position: absolute;
+            bottom: 111%;
+            font-size: 10px;
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            letter-spacing: .1em;
+            white-space: nowrap;
+        }
+        .chooser li:hover span {
+            display: block;
+            width: auto;
+        }
+        .chooser a {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .logo-controls {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .logo-controls label {
+            display: inline-block;
+            width: 100px;
+            margin-right: 10px;
+        }
+        .logo-controls input {
+            width: 60px;
+            margin-right: 20px;
+        }
+        .logo-preview {
+            margin-top: 20px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+        }
+        .top-controls, .bottom-controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .top-controls h3, .bottom-controls h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: rgb(146, 112, 76); border:1px solid #000;" id="court">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 468 326" style="enable-background:new 0 0 468 326;" xml:space="preserve">
+            <!-- Court elements -->
+            <g id="InnerCourt" transform="matrix( 1, 0, 0, 1, 317.8,260.4)">
+                <g transform="matrix( 1, 0, 0, 1, 0,0)">
+                    <g>
+                        <g id="Inner_Buttons_InnerCourt_0_Layer0_0_FILL">
+                            <path style="fill: rgb(1, 91, 120);" class="court-color" d="M-13.35-140.95H-155.9l-70.65,134.1l286,0.35L-13.35-140.95z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix( 1, 0, 0, 1, 0,0)">
+                <g>
+                    <path id="Layer4_0_1_STROKES" style="fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" d="
+                        M376.3,254.05L303.5,119.6h-17.65l7,16.9l27.6,67.1l21,50.95h34.2 M285.85,119.6H178.8l-6.35,16.75l60.2,0.1l60.2,0.05
+                        M341.45,254.55H127.4l-37.1-0.85l70.65-134.1h17.85 M320.45,203.6l-87,0.45l-86.95,0.45l-19.1,50.05 M172.45,136.35L146.5,204.5
+                        M233.45,204.05l-0.8-67.6"></path>
+                </g>
+            </g>
+            <g transform="matrix( 0.751312255859375, 0, 0, 0.7935943603515625, -3.4,6.95)">
+                <g>
+                    <image style="overflow:visible;enable-background:new    ;" width="640" height="418" id="Elements_Net_png" xlink:href="images/net.png" transform="matrix(1.184 0 0 0.7733 -58.8943 47.3742)"> </image>
+                </g>
+            </g>
+            
+            <!-- Top Service Area Logo (inside court) -->
+            <g id="top-logo" transform="translate(200, 100)">
+                <image id="top-custom-logo" xlink:href="" width="60" height="60" preserveAspectRatio="xMidYMid meet" visibility="hidden"/>
+            </g>
+            
+            <!-- Bottom Service Area Logo (inside court) -->
+            <g id="bottom-logo" transform="translate(200, 250)">
+                <image id="bottom-custom-logo" xlink:href="" width="60" height="60" preserveAspectRatio="xMidYMid meet" visibility="hidden"/>
+            </g>
+        </svg>
+    </div>
+
+    <div class="logo-controls">
+        <h2>Logo Customization</h2>
+        
+        <div class="top-controls">
+            <h3>Top Service Area Logo</h3>
+            <div>
+                <label for="top-logo-upload">Upload Logo:</label>
+                <input type="file" id="top-logo-upload" accept="image/*">
+            </div>
+            <div>
+                <label for="top-logo-width">Width:</label>
+                <input type="number" id="top-logo-width" value="60" min="10" max="200">
+                
+                <label for="top-logo-height">Height:</label>
+                <input type="number" id="top-logo-height" value="60" min="10" max="200">
+            </div>
+            <div>
+                <label for="top-logo-x">X Position:</label>
+                <input type="number" id="top-logo-x" value="200" min="0" max="400">
+                
+                <label for="top-logo-y">Y Position:</label>
+                <input type="number" id="top-logo-y" value="100" min="0" max="300">
+            </div>
+        </div>
+        
+        <div class="bottom-controls">
+            <h3>Bottom Service Area Logo</h3>
+            <div>
+                <label for="bottom-logo-upload">Upload Logo:</label>
+                <input type="file" id="bottom-logo-upload" accept="image/*">
+            </div>
+            <div>
+                <label for="bottom-logo-width">Width:</label>
+                <input type="number" id="bottom-logo-width" value="60" min="10" max="200">
+                
+                <label for="bottom-logo-height">Height:</label>
+                <input type="number" id="bottom-logo-height" value="60" min="10" max="200">
+            </div>
+            <div>
+                <label for="bottom-logo-x">X Position:</label>
+                <input type="number" id="bottom-logo-x" value="200" min="0" max="400">
+                
+                <label for="bottom-logo-y">Y Position:</label>
+                <input type="number" id="bottom-logo-y" value="250" min="0" max="300">
+            </div>
+        </div>
+    </div>
+
+    <!-- Color choosers -->
+    <div class="chooser clearfix" id="inner-chooser">
+        <h2>Inner Court Colors:</h2>
+        <ul>
+            <li style="border-color: rgb(37, 52, 65);" class="byronBlue"><span>Byron Blue</span><a style="background-color: rgb(37, 52, 65);" class="byronBlue"></a></li>
+            <li style="border-color: rgb(0, 94, 184);" class="oceanBlue"><span>Ocean Blue</span><a style="background-color: rgb(0, 94, 184);" class="oceanBlue"></a></li>
+            <li style="border-color: rgb(65, 105, 225);" class="royalBlue"><span>Royal Blue</span><a style="background-color: rgb(65, 105, 225);" class="royalBlue"></a></li>
+            <li style="border-color: rgb(126, 200, 80);" class="grassGreen"><span>Grass Green</span><a style="background-color: rgb(126, 200, 80);" class="grassGreen"></a></li>
+            <li style="border-color: rgb(138, 154, 91);" class="mossGreen"><span>Moss Green</span><a style="background-color: rgb(138, 154, 91);" class="mossGreen"></a></li>
+            <li style="border-color: rgb(226, 114, 91);" class="terracotta"><span>Terra cotta</span><a style="background-color: rgb(226, 114, 91);" class="terracotta"></a></li>
+            <li style="border-color: rgb(191, 104, 85);" class="outbackclay"><span>OUTBACK CLAY</span><a style="background-color: rgb(191, 104, 85);" class="outbackclay"></a></li>
+        </ul>
+    </div>
+    
+    <div class="chooser clearfix" id="outer-chooser">
+        <h2>Outer Court Colors:</h2>
+        <ul>
+            <li style="border-color: rgb(37, 52, 65);" class="byronBlue"><span>Byron Blue</span><a style="background-color: rgb(37, 52, 65);" class="byronBlue"></a></li>
+            <li style="border-color: rgb(0, 94, 184);" class="oceanBlue"><span>Ocean Blue</span><a style="background-color: rgb(0, 94, 184);" class="oceanBlue"></a></li>
+            <li style="border-color: rgb(65, 105, 225);" class="royalBlue"><span>Royal Blue</span><a style="background-color: rgb(65, 105, 225);" class="royalBlue"></a></li>
+            <li style="border-color: rgb(126, 200, 80);" class="grassGreen"><span>Grass Green</span><a style="background-color: rgb(126, 200, 80);" class="grassGreen"></a></li>
+            <li style="border-color: rgb(138, 154, 91);" class="mossGreen"><span>Moss Green</span><a style="background-color: rgb(138, 154, 91);" class="mossGreen"></a></li>
+            <li style="border-color: rgb(226, 114, 91);" class="terracotta"><span>Terra cotta</span><a style="background-color: rgb(226, 114, 91);" class="terracotta"></a></li>
+            <li style="border-color: rgb(191, 104, 85);" class="outbackclay"><span>OUTBACK CLAY</span><a style="background-color: rgb(191, 104, 85);" class="outbackclay"></a></li>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Color chooser functionality
+            var colors = {
+                byronBlue: "rgb(37,52,65)",
+                oceanBlue: "rgb(0,94,184)",
+                royalBlue: "rgb(65,105,225)",
+                grassGreen: "rgb(126,200,80)",
+                mossGreen: "rgb(138,154,91)",
+                terracotta: "rgb(226,114,91)",
+                outbackclay: "rgb(191,104,85)"
+            };
+
+            // Apply colors to choosers
+            $(".chooser li").each(function() {
+                var thisClass = $(this).attr('class');
+                if (colors[thisClass]) {
+                    $(this).css("border-color", colors[thisClass]);
+                    $(this).find("a").css("background-color", colors[thisClass]);
+                }
+            });
+            
+            // Set initial court colors
+            $(".court-color").css("fill", "rgb(2,89,140)");
+
+            // Court color selection
+            $("#outer-chooser li a").click(function() {
+                var colorClass = $(this).attr('class');
+                $("#court").css("background-color", colors[colorClass] || "rgb(146, 112, 76)");
+            });
+            
+            $("#inner-chooser li a").click(function() {
+                var colorClass = $(this).attr('class');
+                $(".court-color").css("fill", colors[colorClass] || "rgb(1, 91, 120)");
+            });
+
+            // Top logo upload
+            $('#top-logo-upload').change(function(e) {
+                var file = e.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#top-custom-logo').attr('xlink:href', e.target.result).attr('visibility', 'visible');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Bottom logo upload
+            $('#bottom-logo-upload').change(function(e) {
+                var file = e.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#bottom-custom-logo').attr('xlink:href', e.target.result).attr('visibility', 'visible');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Live updates for top logo controls
+            $('#top-logo-width, #top-logo-height, #top-logo-x, #top-logo-y').on('input change', function() {
+                $('#top-custom-logo').attr('width', $('#top-logo-width').val())
+                                    .attr('height', $('#top-logo-height').val());
+                $('#top-logo').attr('transform', `translate(${$('#top-logo-x').val()},${$('#top-logo-y').val()})`);
+            });
+
+            // Live updates for bottom logo controls
+            $('#bottom-logo-width, #bottom-logo-height, #bottom-logo-x, #bottom-logo-y').on('input change', function() {
+                $('#bottom-custom-logo').attr('width', $('#bottom-logo-width').val())
+                                       .attr('height', $('#bottom-logo-height').val());
+                $('#bottom-logo').attr('transform', `translate(${$('#bottom-logo-x').val()},${$('#bottom-logo-y').val()})`);
+            });
+        });
+    </script>
+</body>
+</html>
